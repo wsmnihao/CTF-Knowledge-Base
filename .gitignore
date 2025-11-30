@@ -1,0 +1,5 @@
+﻿# Obsidian 缓存和临时文件
+.obsidian/workspace*
+.obsidian/trash.db
+.obsidian/icon-cache.json
+.trash/
