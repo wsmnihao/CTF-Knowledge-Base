@@ -53,13 +53,13 @@
 	目的：通信双方设备通过非对称加密算法加密对称加密算法所使用的对称密钥！
 	命令：
 ```bash
-	conf t
+	conf t                   %% IKE %%
 	crypto isakmp policy 1   %% 传输集/策略集 %%
-	encryption des/3des/aes
+	encryption des/3des/aes  %% des（56位密钥），已经彻底废弃，绝对不安全；3des（168位密钥），曾经的标准，性能老旧，不建议使用；aes（128、192、256位密钥），现代标准，强烈推荐 %%
 	hash md5/sha
-	group 1/2/5
-	authentication pre-share
-	lifetime 秒       （默认86400秒）
+	group 1/2/5             %% 这是DH组，md5（128位哈希）存在碰撞，已不安全，必须避免；sha-1（160位哈希）也有点脆弱；256，384，512现代标准 %% 
+	authentication pre-share %% 1，2已经不安全了（768位，1024位），5（1536），算中等；14（2048）当前广泛使用的最低安全标准；15（3072）/16（4096位），用于更高安全 %%
+	lifetime 秒       （默认86400秒，也就是24小时）
 	exit
 	crypto isakmp key 预共享密钥 address 对方的公网IP地址
 ```
@@ -74,7 +74,27 @@
 	%% 定义加密方式 %%
 	crypto ipsectransform-set 传输模式名 esp/sh-des/3des/aes esp/sh-md5/sha-hmac
 ```
-	ESP：支持加密及认证（身份验证+完整性）
-	AH：只支持认证（身份验证+完整性）
+==ESP：==支持加密及认证（身份验证+完整性）
+==AH：==只支持认证（身份验证+完整性）
+### 8、创建MAP映射表：
+	conf t
+	crypto map map名 1 isakmp
+	match address acl表名
+	set transform-set 传输模式
+	set peer 对方的公网IP
+	exit 
 
-
+例如：
+	conf t
+	crypto map wenmap 1 isakmp     %% wenmap 是名称，按照自己的需求来 %%
+	match address 100  
+	set transform-set wenmap            %% wenmap 依旧是名称 %%
+	set peer 200.1.1.2
+	exit
+将map表应用到外网接口：
+	int f0/1（外网接口）
+		crypto map wenmap     %% 表名称 %% 
+		exit
+***注意：一个接口只能应用一个map表！！！！！！
+### IPsec VPN实验
+#### 思科图谱
