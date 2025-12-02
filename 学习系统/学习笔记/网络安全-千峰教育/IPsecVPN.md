@@ -72,13 +72,13 @@
 	access-list 100 permit ip 192.168.0.0 0.0.255.255 172.16.0.0 0.0.255.255
 	
 	%% 定义加密方式 %%
-	crypto ipsectransform-set 传输模式名 esp/sh-des/3des/aes esp/sh-md5/sha-hmac
+	crypto ipsec transform-set 传输模式名 esp/sh-des/3des/aes esp/sh-md5/sha-hmac
 ```
 ==ESP：==支持加密及认证（身份验证+完整性）
 ==AH：==只支持认证（身份验证+完整性）
 ### 8、创建MAP映射表：
 	conf t
-	crypto map map名 1 isakmp
+	crypto map map名 1 ipsec-isakmp
 	match address acl表名
 	set transform-set 传输模式
 	set peer 对方的公网IP
@@ -86,7 +86,7 @@
 
 例如：
 	conf t
-	crypto map wenmap 1 isakmp     %% wenmap 是名称，按照自己的需求来 %%
+	crypto map wenmap 1 ipsec-isakmp     %% wenmap 是名称，按照自己的需求来 %%
 	match address 100  
 	set transform-set wenmap            %% wenmap 依旧是名称 %%
 	set peer 200.1.1.2
@@ -98,3 +98,155 @@
 ***注意：一个接口只能应用一个map表！！！！！！
 ### IPsec VPN实验
 #### 思科图谱
+![](./附件/IPsecVPN-2025-12-02-20-50-58.png)
+
+#### 配置步骤
+##### 1、配置路由与pc
+中间互联网的不需要配置默认路由！！！
+左侧R1:
+	en
+	conf t
+	ho R1-beijing
+	int g0/0/1
+	ip add 192.168.1.254 255.255.255.0
+	no sh
+	exit
+	int g0/0/0
+	ip add 100.1.1.1 255.255.255.0
+	no sh
+	ex
+	ip route 0.0.0.0 0.0.0.0 100.1.1.2
+中间R2:
+	en
+	conf t
+	ho R2-network
+	int g0/1
+	ip add 100.1.1.2 255.255.255.0
+	no sh
+	ex
+	int g0/2
+	ip add 200.1.1.1 255.255.255.0
+	no sh
+	ex
+右侧R3：
+	en
+	conf t
+	ho R3-shanghai
+	int g0/0/0
+	ip add 200.1.1.2 255.255.255.0
+	no sh
+	exit
+	int g0/0/1
+	ip add 172.16.1.254 255.255.255.0
+	no sh
+	ex
+	ip route 0.0.0.0 0.0.0.0 200.1.1.1
+==***此时他们并为连通，要做VPN隧道之后才可以。==
+
+#### 配置VPN第一阶段
+R1:
+```
+	crypto isakmp policy 1
+	encryption aes
+	hash md5
+	group 2
+	authentication pre-share
+	exit
+	crypto isakmp key vpn address 200.1.1.2 
+	
+```
+![](./附件/IPsecVPN-2025-12-02-21-22-23.png)
+
+#### 第二阶段
+```
+	acc 100 permit ip 192.168.1.0 0.0.0.255 172.16.1.0 0.0.0.255
+	crypto ipsec transform-set ipsce-vpn esp-aes esp-sha-hmac
+```
+![](./附件/IPsecVPN-2025-12-02-21-32-31.png)****
+
+#### 整合
+```
+	crypto map vpnmap 1 ipsec-isakmp
+	match address 100
+	set transform-set ipsce-vpn      #没注意第一次写错了...
+	set peer 200.1.1.2
+	exit
+```
+![](./附件/IPsecVPN-2025-12-02-21-44-54.png)
+
+#### 应用到接口
+```
+	int g0/0/0
+	crypto map vpnmap
+	exit
+```
+![](./附件/IPsecVPN-2025-12-02-21-48-12.png)
+
+#### R2配置：
+##### 第一阶段
+![](./附件/IPsecVPN-2025-12-02-21-55-58.png)
+
+##### 第二阶段
+![](./附件/IPsecVPN-2025-12-02-21-58-09.png)
+
+##### 整合
+***中间写错了...
+![](./附件/IPsecVPN-2025-12-02-22-00-41.png)
+
+##### 应用到接口
+
+![](./附件/IPsecVPN-2025-12-02-22-02-39.png)
+
+***测试通断？
+
+通了！！！
+![](./附件/IPsecVPN-2025-12-02-22-03-53.png)
+
+### 状态检查
+***如果没通，就用这三个命令检查就行
+
+#### 检查ike sa （阶段1）
+注解：
+	查看IKE阶段1的安全关联
+**关键状态**：
+
+- `QM_IDLE` ✅ 阶段1 成功建立
+    
+- `MM_NO_STATE` ❌ 阶段1 失败
+    
+- `MM_KEY_EXCH` 🔄 正在密钥交换
+
+```
+	show crypto isakmp sa
+```
+#### 检查IPSec sa（阶段2）
+注解：
+	查看IPSec阶段2的安全关联
+**关键信息**：
+
+- 加密/解密的数据包计数
+    
+- SA 的生存时间
+    
+- 隧道两端的地址
+```
+	show crypto ipsec sa
+```
+#### 检查crypto map状态
+注解：
+	综合查看所有加密会话状态
+```
+	show crypto session
+```
+或
+```
+	show crypto engine connections active
+```
+### 9、查看命令：
+	show crypto isakmp sa           查看第一阶段状态
+	show crypto ipsec sa            查看第二阶段状态
+	
+	show crypto isakmp policy       查看第一阶段的策略配置集
+	show crypto ipsec transfor-set  查看第二阶段的传输模式
+### 10、路由器的工作原理
+内网-->to-->外网：路由--NAT--VPN--出去
