@@ -307,4 +307,64 @@ PasswordAuthentication yes
 ### 完毕！！！
 
 ---
+### 可选（中文输入法安装）
+#### 安装必要的依赖和框架
+```bash
+# 1. 更新系统
+sudo apt update && sudo apt upgrade -y
+
+# 2. 安装Fcitx框架和谷歌拼音（最稳定）
+sudo apt install fcitx fcitx-config-gtk fcitx-googlepinyin -y
+
+# 3. 安装中文语言包和字体-谷歌
+sudo apt install fonts-wqy-zenhei fonts-wqy-microhei locales -y
+
+# 3.1检查谷歌相关的是否安装成功
+dpkg -l | grep fcitx-googlepinyin
+# 应该看到：ii  fcitx-googlepinyin  ...  表示已安装
+```
+#### 启动与检查fcitx服务
+```bash
+# 强制重启Fcitx服务（确保以当前用户运行）
+pkill -9 fcitx
+fcitx -d &
+
+# 等待2秒，然后检查状态
+sleep 2
+fcitx-remote
+
+
+# 我的是环境变量没配置，做的如下操作
+# 1. 手动设置环境变量（立即生效）
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+
+# 2. 确保它们永久生效（添加到shell配置）
+echo 'export XMODIFIERS=@im=fcitx' >> ~/.bashrc
+echo 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
+echo 'export QT_IM_MODULE=fcitx' >> ~/.bashrc
+
+# 3. 重新启动Fcitx，让新变量生效
+pkill -9 fcitx
+fcitx -d &
+sleep 2
+```
+#### 配置环境变量和输入法
+```bash
+# 8. 设置环境变量（添加到~/.bashrc）
+echo 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
+echo 'export QT_IM_MODULE=fcitx' >> ~/.bashrc
+echo 'export XMODIFIERS=@im=fcitx' >> ~/.bashrc
+
+# 9. 使环境变量生效
+source ~/.bashrc
+
+# 10. 重启Fcitx服务
+fcitx-autostart
+
+# 重启
+reboot
+```
+
 *迁移自语雀文档，原始ID: pyiy8fyd8ien2str*
