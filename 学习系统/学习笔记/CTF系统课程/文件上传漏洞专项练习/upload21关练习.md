@@ -674,8 +674,235 @@ if(isset($_POST['submit'])){
 
 	分析：
 	检查文件头部两个字节的信息，可以用这个绕过
+	这个是需要用文件包含漏洞搭配才能成功的，点击使用文件包含漏洞就能跳转到页面，能包含所有图片文件，可以被解析执行。
+![](./附件/upload21关练习-2026-05-25-15-23-38.png)
 步骤：
-	1、上传shell.png（）
-	2、抓包拦截
-		修改信息如下：
-		
+1、制作图片码
+
+```
+		copy /b shell.php + 图片码.png shell.tupian.png
+```
+	
+2、上传shell.tupian.png
+![](./附件/upload21关练习-2026-05-25-15-16-36.png)
+
+3、蚂蚁剑链接
+	链接的时候，这个地址路径可以在上传图片展示区域右键，复制文件地址。然后回到这个文件包含漏洞的页面，写上如下地址：	这是已经被解析掉了，目的达到用蚂蚁剑链接就	
+![](./附件/upload21关练习-2026-05-25-15-35-21.png)
+
+	如下所示：
+![](./附件/upload21关练习-2026-05-25-15-10-40.png)
+
+# 关卡15
+关卡代码限制构造
+```php
+function isImage($filename){
+    $types = '.jpeg|.png|.gif';
+    if(file_exists($filename)){
+        $info = getimagesize($filename);
+        $ext = image_type_to_extension($info[2]);
+        if(stripos($types,$ext)>=0){
+            return $ext;
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+
+$is_upload = false;
+$msg = null;
+if(isset($_POST['submit'])){
+    $temp_file = $_FILES['upload_file']['tmp_name'];
+    $res = isImage($temp_file);
+    if(!$res){
+        $msg = "文件未知，上传失败！";
+    }else{
+        $img_path = UPLOAD_PATH."/".rand(10, 99).date("YmdHis").$res;
+        if(move_uploaded_file($temp_file,$img_path)){
+            $is_upload = true;
+        } else {
+            $msg = "上传出错！";
+        }
+    }
+}
+```
+
+	分析：
+	这个跟上面的一样，是检查文件内容。这个更加严格，检查整个文件结构，操作同上，写入一句话木马就行
+步骤：
+	1、制作图片码
+```cmd
+copy /b  黑白.png + shell.php heibai_shell.png
+```
+	或者用010软件制作也可以的，用010软件打开之后，翻到最后面，写入一句话木马即可
+	如下所示：
+![](./附件/upload21关练习-2026-05-25-15-52-22.png)
+
+2、上传图片码
+3、蚂蚁剑链接
+	同上操作即可
+![](./附件/upload21关练习-2026-05-25-15-54-59.png)
+# 关卡16
+关卡代码限制构造
+```php
+function isImage($filename){
+    //需要开启php_exif模块
+    $image_type = exif_imagetype($filename);
+    switch ($image_type) {
+        case IMAGETYPE_GIF:
+            return "gif";
+            break;
+        case IMAGETYPE_JPEG:
+            return "jpg";
+            break;
+        case IMAGETYPE_PNG:
+            return "png";
+            break;    
+        default:
+            return false;
+            break;
+    }
+}
+
+$is_upload = false;
+$msg = null;
+if(isset($_POST['submit'])){
+    $temp_file = $_FILES['upload_file']['tmp_name'];
+    $res = isImage($temp_file);
+    if(!$res){
+        $msg = "文件未知，上传失败！";
+    }else{
+        $img_path = UPLOAD_PATH."/".rand(10, 99).date("YmdHis").".".$res;
+        if(move_uploaded_file($temp_file,$img_path)){
+            $is_upload = true;
+        } else {
+            $msg = "上传出错！";
+        }
+    }
+}
+```
+
+	分析：
+	这个跟前面两个一样，这个要开启php_exif模块，再进行绕过处理
+前置条件：
+	开启php的exif模块
+	点击php扩展，点击php_exif即可
+![](./附件/upload21关练习-2026-05-25-16-02-58.png)
+
+	如果改完之后网站报错500状态码，就修改php.ini的配置文件
+	修改如下：
+		extension_dir = "./"
+		将这个修改为：
+		extension_dir = "ext"
+	启用注释配置：
+		;extension=php_mbstring.dll
+	改为：
+		extension=php_mbstring.dll
+	将这个也取消注释：
+		extension=php_exif.dll
+	还有就是这两个模块的顺序为：
+	extension=php_exif.dll
+	extension=php_mbstring.dll
+步骤：
+1、制作图片码
+2、上传
+3、蚂蚁剑链接
+![](./附件/upload21关练习-2026-05-25-17-38-42.png)
+
+# 关卡17
+关卡代码限制构造
+```php
+$is_upload = false;
+$msg = null;
+if (isset($_POST['submit'])){
+    // 获得上传文件的基本信息，文件名，类型，大小，临时文件路径
+    $filename = $_FILES['upload_file']['name'];
+    $filetype = $_FILES['upload_file']['type'];
+    $tmpname = $_FILES['upload_file']['tmp_name'];
+
+    $target_path=UPLOAD_PATH.'/'.basename($filename);
+
+    // 获得上传文件的扩展名
+    $fileext= substr(strrchr($filename,"."),1);
+
+    //判断文件后缀与类型，合法才进行上传操作
+    if(($fileext == "jpg") && ($filetype=="image/jpeg")){
+        if(move_uploaded_file($tmpname,$target_path)){
+            //使用上传的图片生成新的图片
+            $im = imagecreatefromjpeg($target_path);
+
+            if($im == false){
+                $msg = "该文件不是jpg格式的图片！";
+                @unlink($target_path);
+            }else{
+                //给新图片指定文件名
+                srand(time());
+                $newfilename = strval(rand()).".jpg";
+                //显示二次渲染后的图片（使用用户上传图片生成的新图片）
+                $img_path = UPLOAD_PATH.'/'.$newfilename;
+                imagejpeg($im,$img_path);
+                @unlink($target_path);
+                $is_upload = true;
+            }
+        } else {
+            $msg = "上传出错！";
+        }
+
+    }else if(($fileext == "png") && ($filetype=="image/png")){
+        if(move_uploaded_file($tmpname,$target_path)){
+            //使用上传的图片生成新的图片
+            $im = imagecreatefrompng($target_path);
+
+            if($im == false){
+                $msg = "该文件不是png格式的图片！";
+                @unlink($target_path);
+            }else{
+                 //给新图片指定文件名
+                srand(time());
+                $newfilename = strval(rand()).".png";
+                //显示二次渲染后的图片（使用用户上传图片生成的新图片）
+                $img_path = UPLOAD_PATH.'/'.$newfilename;
+                imagepng($im,$img_path);
+
+                @unlink($target_path);
+                $is_upload = true;               
+            }
+        } else {
+            $msg = "上传出错！";
+        }
+
+    }else if(($fileext == "gif") && ($filetype=="image/gif")){
+        if(move_uploaded_file($tmpname,$target_path)){
+            //使用上传的图片生成新的图片
+            $im = imagecreatefromgif($target_path);
+            if($im == false){
+                $msg = "该文件不是gif格式的图片！";
+                @unlink($target_path);
+            }else{
+                //给新图片指定文件名
+                srand(time());
+                $newfilename = strval(rand()).".gif";
+                //显示二次渲染后的图片（使用用户上传图片生成的新图片）
+                $img_path = UPLOAD_PATH.'/'.$newfilename;
+                imagegif($im,$img_path);
+
+                @unlink($target_path);
+                $is_upload = true;
+            }
+        } else {
+            $msg = "上传出错！";
+        }
+    }else{
+        $msg = "只允许上传后缀为.jpg|.png|.gif的图片文件！";
+    }
+}
+```
+
+	分析：
+	这个更加严格了，是直接查的是文件扩展名，然后后面还有进行了二次渲染，直接修改了原图片的一些元数据信息。
+	绕过思路可以先上传一个普通照片，再下载下来，用010 editor软件打开比对，把没有被替换的部分，些一句话木马进去就行。
+
+步骤：
+1、上传普通图片
