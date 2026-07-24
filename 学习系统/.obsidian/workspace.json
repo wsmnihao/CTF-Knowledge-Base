@@ -1,0 +1,234 @@
+{
+  "main": {
+    "id": "260fd0ea6817e5ed",
+    "type": "split",
+    "children": [
+      {
+        "id": "4006ce05ac46c016",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "108f07be77f4b007",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习笔记/CTF系统课程/Python黑客/17-Python循环语句之for.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "17-Python循环语句之for"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "820384616f8c9b3f",
+    "type": "split",
+    "children": [
+      {
+        "id": "960e9f43a5a96520",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7d578ad55f6f4236",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "277a2f8b433ff530",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "0ed8e9f7a11bc9bc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 383.5,
+    "collapsed": true
+  },
+  "right": {
+    "id": "e9acd75a416d1bd5",
+    "type": "split",
+    "children": [
+      {
+        "id": "462c4b651410398f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b9f5e4283c2128c0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "学习笔记/CTF系统课程/靶场专项/pikachu靶场练习/XSS（反射型）-跨站脚本攻击专项学习.md",
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "XSS（反射型）-跨站脚本攻击专项学习 的反向链接列表"
+            }
+          },
+          {
+            "id": "3a4063296bf0f6ff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "学习笔记/CTF系统课程/靶场专项/pikachu靶场练习/XSS（反射型）-跨站脚本攻击专项学习.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "XSS（反射型）-跨站脚本攻击专项学习 的出链列表"
+            }
+          },
+          {
+            "id": "072a53a93e392a6f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "a84f081e09a565b2",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "6010a6607d154c87",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "学习笔记/CTF系统课程/Python黑客/07-python基础之运算符.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "07-python基础之运算符 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "108f07be77f4b007",
+  "lastOpenFiles": [
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724115129.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724114700.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724113828.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724113703.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724113630.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724113301.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724113205.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724112832.png",
+    "学习笔记/CTF系统课程/Python黑客/16-Python之while循环语句的使用.md",
+    "学习笔记/CTF系统课程/Python黑客/17-Python循环语句之for.md",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724112312.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724105009.png",
+    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724104706.png",
+    "学习笔记/CTF系统课程/Python黑客/15-Python判断语句if之综合案例.md",
+    "学习笔记/CTF系统课程/Python黑客/14-python判断语句的嵌套.md",
+    "学习笔记/CTF系统课程/Python黑客/13-python判断语句的语法之if的基本格式.md",
+    "学习笔记/CTF系统课程/Python黑客/12-python判断语句之布尔类型和比较运算符.md",
+    "学习笔记/CTF系统课程/Python黑客/07-python基础之运算符.md",
+    "学习笔记/CTF系统课程/Python黑客/08-python基础之字符串的三种定义方式.md",
+    "学习笔记/CTF系统课程/Python黑客/09-python基础之字符串拼接.md",
+    "学习笔记/CTF系统课程/Python黑客/11-python基础之数据输入input.md",
+    "学习笔记/CTF系统课程/Python黑客/10-python基础之字符串格式化.md",
+    "学习笔记/CTF系统课程/Python黑客/06-python基础之标识符.md",
+    "学习笔记/CTF系统课程/Python黑客/05-python基础之数据类型转换.md",
+    "学习笔记/CTF系统课程/Python黑客/04-python之数据类型.md",
+    "学习笔记/CTF系统课程/Python黑客/03-python之变量.md",
+    "学习笔记/CTF系统课程/Python黑客/02-python基础学习.md",
+    "学习笔记/CTF系统课程/Python黑客/01-环境搭建与pip的使用.md",
+    "学习笔记/CTF系统课程/Python黑客/09-基础函数.md",
+    "学习笔记/CTF系统课程/Python黑客/02-基本数据类型与基本操作其一.md",
+    "学习笔记/CTF系统课程/Python黑客/06-运算符.md",
+    "学习笔记/CTF系统课程/021-SQL自动化注入工具安装.md",
+    "2026-07-21.md",
+    "未命名.canvas",
+    "未命名.base",
+    "学习笔记/CTF系统课程/Python黑客/07-条件语句.md",
+    "学习笔记/CTF系统课程/Python黑客/08-循环语句.md",
+    "学习笔记/CTF系统课程/Python黑客/05-input输入函数与print输出函数.md",
+    "学习笔记/CTF系统课程/靶场专项/pikachu靶场练习/附件",
+    "学习笔记/CTF系统课程/靶场专项/pikachu靶场练习/新建文件夹",
+    "学习笔记/CTF系统课程/靶场专项/pikachu靶场练习",
+    "学习笔记/CTF系统课程/靶场专项",
+    "学习笔记/新概念英语/新概念英语 3 课堂笔记L01-L40.pdf"
+  ]
+}
