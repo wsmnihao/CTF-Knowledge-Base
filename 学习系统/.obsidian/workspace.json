@@ -4,24 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "4006ce05ac46c016",
+        "id": "b06610c772b38562",
         "type": "tabs",
         "children": [
           {
-            "id": "108f07be77f4b007",
+            "id": "2ee9ef70127e1bbe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "打靶/工具概览之重型杀器/密码破解类/开膛手约翰~John.md",
+                "file": "打靶/工具概览之重型杀器/信息收集类/Nmap专项学习--基础.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "开膛手约翰~John"
+              "title": "Nmap专项学习--基础"
+            }
+          },
+          {
+            "id": "c421135add55a68c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "打靶/Vulnhub/Easy/W1R3S_1.0.1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "W1R3S_1.0.1"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -157,13 +172,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "打靶/工具概览之重型杀器/密码破解类/开膛手约翰~John.md",
+                "file": "打靶/Vulnhub/Easy/W1R3S_1.0.1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "开膛手约翰~John 的大纲"
+              "title": "W1R3S_1.0.1 的大纲"
             }
           }
         ],
@@ -185,54 +200,53 @@
       "bases:新建数据库": false
     }
   },
-  "active": "108f07be77f4b007",
+  "active": "c421135add55a68c",
   "lastOpenFiles": [
-    "打靶/工具概览之重型杀器/密码破解类/附件/Pasted image 20260725171124.png",
-    "打靶/工具概览之重型杀器/密码破解类/附件",
-    "学习笔记/CTF系统课程/Python黑客/19-Python函数初体验.md",
+    "打靶/工具概览之重型杀器/信息收集类/Nmap专项学习--基础.md",
+    "未命名 1.base",
+    "打靶/Vulnhub/Easy/W1R3S_1.0.1.md",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726200040.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726195732.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726194708.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726194546.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726194523.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726194022.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726192854.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726191157.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726185129.png",
+    "打靶/Vulnhub/Easy/附件/Pasted image 20260726182609.png",
+    "打靶/Vulnhub/Easy/附件",
+    "学习笔记/CTF系统课程/Python黑客/19-Python循环判断语句的综合练习题.md",
+    "学习笔记/CTF系统课程/Python黑客/20-Python函数初体验.md",
+    "学习笔记/CTF系统课程/Python黑客/16-Python之while循环语句的使用.md",
+    "学习笔记/CTF系统课程/Python黑客/13-python判断语句的语法之if的基本格式.md",
+    "学习笔记/CTF系统课程/Python黑客/12-python判断语句之布尔类型和比较运算符.md",
+    "学习笔记/CTF系统课程/Python黑客/11-python基础之数据输入input.md",
+    "学习笔记/CTF系统课程/Python黑客/10-python基础之字符串格式化.md",
+    "学习笔记/CTF系统课程/Python黑客/09-python基础之字符串拼接.md",
+    "学习笔记/CTF系统课程/Python黑客/08-python基础之字符串的三种定义方式.md",
+    "学习笔记/CTF系统课程/Python黑客/07-python基础之运算符.md",
+    "学习笔记/tryhackme学习之旅/模块1——网络安全导论.md",
+    "学习笔记/tryhackme学习之旅/模块2——网络基础.md",
+    "学习笔记/tryhackme学习之旅/模块3——网络的运作方式.md",
+    "学习笔记/tryhackme学习之旅/模块4——计算机基础.md",
+    "学习笔记/tryhackme学习之旅/模块5——计算机基础.md",
+    "打靶/工具概览之重型杀器/信息收集类/Gobuster专项学习--基础.md",
+    "打靶/工具概览之重型杀器/漏洞利用_权限获取类/hydra--九头蛇专项学习--基础.md",
     "打靶/工具概览之重型杀器/密码破解类/开膛手约翰~John.md",
+    "打靶/工具概览之重型杀器/密码破解类/附件",
     "打靶/工具概览之重型杀器/密码破解类/未命名",
     "打靶/工具概览之重型杀器/漏洞利用框架类",
     "打靶/工具概览之重型杀器/Web代理_测试平台类",
     "打靶/工具概览之重型杀器/密码破解类",
-    "打靶/工具概览之重型杀器/漏洞利用类",
+    "打靶/工具概览之重型杀器/漏洞利用_权限获取类",
     "打靶/kali工具概览/信息收集类/未命名",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725101054.png",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725101010.png",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725100835.png",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725100019.png",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725095341.png",
     "学习笔记/CTF系统课程/Python黑客/18-Python基础之continue和break语法.md",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725094840.png",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725084744.png",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725084502.png",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260725084024.png",
-    "打靶/工具概览之重型杀器/信息收集类/Nmap专项学习--基础.md",
-    "打靶/Vulnhub/Easy/W1R3S_1.0.1.md",
     "未命名.base",
-    "打靶/工具概览之重型杀器/信息收集类",
-    "打靶/工具概览之重型杀器",
     "打靶/Vulnhub/未命名.md",
     "2026-07-21.md",
     "未命名.canvas",
-    "学习笔记/CTF系统课程/Python黑客/附件/Pasted image 20260724153334.png",
     "学习笔记/CTF系统课程/Python黑客/17-Python循环语句之for.md",
-    "学习笔记/CTF系统课程/Python黑客/16-Python之while循环语句的使用.md",
-    "学习笔记/CTF系统课程/Python黑客/15-Python判断语句if之综合案例.md",
-    "学习笔记/CTF系统课程/Python黑客/14-python判断语句的嵌套.md",
-    "学习笔记/CTF系统课程/Python黑客/13-python判断语句的语法之if的基本格式.md",
-    "学习笔记/CTF系统课程/Python黑客/12-python判断语句之布尔类型和比较运算符.md",
-    "学习笔记/CTF系统课程/Python黑客/07-python基础之运算符.md",
-    "学习笔记/CTF系统课程/Python黑客/08-python基础之字符串的三种定义方式.md",
-    "学习笔记/CTF系统课程/Python黑客/09-python基础之字符串拼接.md",
-    "学习笔记/CTF系统课程/Python黑客/11-python基础之数据输入input.md",
-    "学习笔记/CTF系统课程/Python黑客/10-python基础之字符串格式化.md",
-    "学习笔记/CTF系统课程/Python黑客/06-python基础之标识符.md",
-    "学习笔记/CTF系统课程/Python黑客/05-python基础之数据类型转换.md",
-    "学习笔记/CTF系统课程/Python黑客/04-python之数据类型.md",
-    "学习笔记/CTF系统课程/Python黑客/03-python之变量.md",
-    "学习笔记/CTF系统课程/Python黑客/02-python基础学习.md",
-    "学习笔记/CTF系统课程/Python黑客/01-环境搭建与pip的使用.md",
-    "学习笔记/CTF系统课程/Python黑客/09-基础函数.md"
+    "学习笔记/CTF系统课程/Python黑客/15-Python判断语句if之综合案例.md"
   ]
 }
