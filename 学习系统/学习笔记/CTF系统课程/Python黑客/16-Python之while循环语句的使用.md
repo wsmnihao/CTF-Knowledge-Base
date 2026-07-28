@@ -95,3 +95,78 @@ while i <= 9:
 ```
 
 ![[Pasted image 20260724112312.png]]
+
+```python
+# 定义一个全局变量：money，用来记录银行卡余额（默认5000000）  
+# 定义一个全局变量：name，用来记录用客户姓名（启动程序时上输入）  
+# 定义如下哈桉树：  
+# 1、查询余额函数  
+# 2、存款函数  
+# 3、取款函数  
+# 4、主菜单你函数  
+"""  
+要求：  
+程序启动时要求输入客户姓名  
+查询余额、存款、取款后都会返回主菜单  
+存款、取款后、都应显示一下当前余额  
+客户选择退出或输入错误，程序会退出，否则一直运行  
+"""  
+  
+money = 5000000  
+name = input("请输入名称：")  
+  
+# 查询余额函数  
+def  select_money():  
+    print(f"---------------余额---------------")  
+    print(f"{name},您好，您的余额是：{money}")  
+    main()  
+  
+  
+# 存款函数  
+def save_money():  
+    global money  
+    sum_money = int(input("请输入您要存的钱："))  
+    money += sum_money  
+    print(f"---------------存款---------------")  
+    print(f"{name},您好，您存款{sum_money}元成功\n{name},您好，您的余额剩余：{money}")  
+    main()  
+  
+  
+# 取款余额  
+def get_money():  
+    print(f"---------------取款---------------")  
+    global money  
+    sub_money = int(input("请输入您要取的钱："))  
+    if sub_money > money:  
+        print(f"余额不足")  
+    else:  
+        money -= sub_money  
+        print(f"{name},您好，您取款{money}元成\n{name},您好，您的余额剩余：{money}")  
+    main()  
+  
+  
+  
+  
+# 主菜单函数  
+def main():  
+    global name  
+    while True:  
+        print(f"\n{name}，您好，欢迎来到黑马银行ATM")  
+        print("查询余额 [输入1]")  
+        print("存款     [输入2]")  
+        print("取款     [输入3]")  
+        print("退出     [输入4]")  
+        check_num = input("请输入您的选择：")  
+        if check_num == "1":  
+            select_money()  
+        elif check_num == "2":  
+            save_money()  
+        elif check_num == "3":  
+            get_money()  
+        elif check_num == "4":  
+            print("退出成功，再见！")  
+            break  
+        else:  
+            print("输入有误，请重新输入")  
+main()
+```

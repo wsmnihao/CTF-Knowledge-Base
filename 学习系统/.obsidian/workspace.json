@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "打靶/Vulnhub/Easy/W1R3S_1.0.1.md",
+                "file": "平台搭建/最实用！！！VPN服务搭建.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "W1R3S_1.0.1"
+              "title": "最实用！！！VPN服务搭建"
             }
           }
         ],
@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 383.5,
-    "collapsed": true
+    "width": 383.5
   },
   "right": {
     "id": "e9acd75a416d1bd5",
@@ -202,9 +201,12 @@
   },
   "active": "c421135add55a68c",
   "lastOpenFiles": [
-    "打靶/工具概览之重型杀器/信息收集类/Nmap专项学习--基础.md",
+    "平台搭建/堡垒机搭建.md",
+    "平台搭建/最实用！！！VPN服务搭建.md",
+    "未命名.base",
     "未命名 1.base",
     "打靶/Vulnhub/Easy/W1R3S_1.0.1.md",
+    "打靶/工具概览之重型杀器/信息收集类/Nmap专项学习--基础.md",
     "打靶/Vulnhub/Easy/附件/Pasted image 20260726200040.png",
     "打靶/Vulnhub/Easy/附件/Pasted image 20260726195732.png",
     "打靶/Vulnhub/Easy/附件/Pasted image 20260726194708.png",
@@ -242,11 +244,9 @@
     "打靶/工具概览之重型杀器/漏洞利用_权限获取类",
     "打靶/kali工具概览/信息收集类/未命名",
     "学习笔记/CTF系统课程/Python黑客/18-Python基础之continue和break语法.md",
-    "未命名.base",
     "打靶/Vulnhub/未命名.md",
     "2026-07-21.md",
     "未命名.canvas",
-    "学习笔记/CTF系统课程/Python黑客/17-Python循环语句之for.md",
-    "学习笔记/CTF系统课程/Python黑客/15-Python判断语句if之综合案例.md"
+    "学习笔记/CTF系统课程/Python黑客/17-Python循环语句之for.md"
   ]
 }
