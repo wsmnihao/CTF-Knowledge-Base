@@ -343,6 +343,47 @@ def list_for_func():
 
 list_for_func()	
 ```
+##### for循环的语法糖/列表推导式
+
+语法：
+```Python
+# 变量名 = [结果 for循环 临时变量/存储的临时变量 范围/列表/变量名 ]
+list_num = [nums for nums in range(1,21,2)]
+```
+```Python
+magicians = ['alice','david','carolina']  
+for magican in magicians:  
+    print(f"{magican.title()},that was a great trick！")  
+    print(f"i can't wait to see your next trick.{magican.title()}\n")  
+print(f"think you everyone.That was a great magic show!")  
+  
+pizzas = ['apple','banana','pineapple']  
+for pizza in pizzas:  
+    print(f"i like {pizza} pizza")  
+print(f"i really love {pizza}")  
+  
+animals = ['dog','cat','bird']  
+for animal in animals:  
+    print(f"A {animal} would make a great pet.")  
+    print("Any of these animals would make a great pet!")  
+  
+for value in range(1,5):  
+    print(value)  
+numbers = list(range(1,6))  
+print(numbers)  
+even_numbers = list(range(1,20,2))  
+print(even_numbers)  
+
+# 重点看这里
+squares = []  
+for value in range(1,11):  
+    squares.append(value ** 2)  
+print(squares)  
+
+# 列表推导式
+squares = [value ** 2 for value in range(1,11)]  
+print(squares)
+```
 
 #### while循环和for循环的对比
 

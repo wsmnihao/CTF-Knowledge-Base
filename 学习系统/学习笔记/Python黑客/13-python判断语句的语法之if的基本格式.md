@@ -3,12 +3,96 @@
 
 ![[Pasted image 20260723084307.png]]
 
+
+
 示例
 
 ```python
-
+age = 20  
+if age >= 20:  
+    print("我已经成年了！")  
+    print("即将步入大学生活")  
+else:  
+    print("继续努力，冲击月考")  
+print("准备迎接高考！")
 ```
 
+### if常见用法
+
+**常规数值比较**
+
+```Python
+age = 20  
+if age >= 20:  
+    print("我已经成年了！")  
+    print("即将步入大学生活")  
+else:  
+    print("继续努力，冲击月考")  
+print("准备迎接高考！")
+```
+
+**检查多个条件**‘and’
+
+and用法里面，必须左右两边都通过判断之后，才显示True，不通过任何一侧的一个，会返回False
+```Python
+age01 = 22  
+age02 = 18  
+if age01 >= 21 and age02 >= 21:  
+    print(True)  
+else:  
+    print(False)
+
+# 也可以这样写
+if (age01 >= 21) and (age02 >= 21):  
+    print(True)  
+else:  
+    print(False)
+```
+
+**使用or检查多个条件**
+
+or用法里面，只要有任意一个通过判断即返回既定信息，都不通过会返回else的信息。
+```Python
+if age01 >= 21 or age02 >= 21:  
+    print("你过关")  
+else:  
+    print("听不清楚！")
+```
+
+**检查特定字符是否在列表中**
+
+```Python
+list_if = ['apple','space','cyto','hello']  
+if 'apple' in list_if:  
+    print("存在字符！！")  
+else:  
+    print("未找到字符！")
+```
+
+**检查特定的值是否不在列表中**
+检查某个值是否在某个列表中
+```Python
+banned_users = ['li','zhang','wang','wu']  
+user = 'wu'  
+if user not in banned_users:  
+    print("存在！")  
+else:  
+    print("不存在")
+```
+
+
+**检查某个值是否为True或False**
+
+```Python
+list_not = False  
+if not list_not:  
+    print("假的")  
+age = 10  
+if not age >= 18:  
+    print("成年了，恭喜")  
+else:  
+    print("未成年！！")
+```
 
 ![[Pasted image 20260723085005.png]]
 
