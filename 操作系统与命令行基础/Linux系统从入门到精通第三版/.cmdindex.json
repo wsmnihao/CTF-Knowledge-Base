@@ -1,0 +1,1855 @@
+{
+ "aa-status": {
+  "n": 2,
+  "ch": [
+   "ch01",
+   "ch02"
+  ],
+  "ex": [
+   "aa-status 2>/dev/null | head -3 || echo \"AppArmor 未启用\"",
+   "sudo aa-status"
+  ]
+ },
+ "add-apt-repository": {
+  "n": 2,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "sudo add-apt-repository ppa:user/ppa-name",
+   "sudo add-apt-repository --remove ppa:user/ppa-name"
+  ]
+ },
+ "adduser": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo adduser liu        # 会问密码、问 Full Name 等"
+  ]
+ },
+ "apropos": {
+  "n": 1,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "apropos \"resize disk\""
+  ]
+ },
+ "apt": {
+  "n": 73,
+  "ch": [
+   "ch02",
+   "ch03",
+   "ch05",
+   "ch06",
+   "ch08",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "sudo apt update",
+   "sudo apt full-upgrade"
+  ]
+ },
+ "apt-cache": {
+  "n": 7,
+  "ch": [
+   "ch01",
+   "ch10"
+  ],
+  "ex": [
+   "apt-cache search 关键词",
+   "apt-cache policy nginx"
+  ]
+ },
+ "apt-config": {
+  "n": 1,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "sudo apt-config dump | grep -i proxy"
+  ]
+ },
+ "apt-get": {
+  "n": 8,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "sudo apt-get -y --dry-run full-upgrade    # 看要干什么",
+   "sudo apt-get -y full-upgrade             # 确认无误后执行"
+  ]
+ },
+ "apt-mark": {
+  "n": 14,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "apt-mark showauto | grep nginx",
+   "apt-mark showauto                       # 列出所有 auto 包"
+  ]
+ },
+ "awk": {
+  "n": 30,
+  "ch": [
+   "ch03",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "awk '{print $1}'      # 单引号：awk 要看到字面的 $1",
+   "cut -d' ' -f1-3 errors.txt | LC_ALL=C sort | uniq -c | awk '{s+=$1} END {print s"
+  ]
+ },
+ "bash": {
+  "n": 4,
+  "ch": [
+   "ch03",
+   "ch11"
+  ],
+  "ex": [
+   "bash -c 'echo $MYVAR'",
+   "bash -c 'echo $MYVAR'"
+  ]
+ },
+ "bind": {
+  "n": 2,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "bind -p",
+   "bind '\"\\e[15~\": backward-kill-word'"
+  ]
+ },
+ "cat": {
+  "n": 60,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch11"
+  ],
+  "ex": [
+   "cat /etc/hostname",
+   "cat /etc/apt/sources.list.d/ubuntu.sources"
+  ]
+ },
+ "cd": {
+  "n": 17,
+  "ch": [
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch07",
+   "ch09",
+   "ch10"
+  ],
+  "ex": [
+   "cd /var/log ; ls",
+   "cd /var/log && ls"
+  ]
+ },
+ "chage": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo chage -d 0 liu",
+   "chage -l liu"
+  ]
+ },
+ "chgrp": {
+  "n": 3,
+  "ch": [
+   "ch06"
+  ],
+  "ex": [
+   "chgrp 组 文件            # 同上，另一种写法",
+   "chgrp disk 文件        # 成功（user 是 disk 组成员）"
+  ]
+ },
+ "chmod": {
+  "n": 15,
+  "ch": [
+   "ch03",
+   "ch06",
+   "ch08",
+   "ch09",
+   "ch11"
+  ],
+  "ex": [
+   "chmod +x ~/.local/bin/myscript",
+   "chmod 600 demo                      # rw-------"
+  ]
+ },
+ "chown": {
+  "n": 5,
+  "ch": [
+   "ch06",
+   "ch11"
+  ],
+  "ex": [
+   "chown 用户:组 文件        # 同时改两者",
+   "chown 用户 文件          # 只改属主"
+  ]
+ },
+ "chpasswd": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo chpasswd < ~/passwords.csv"
+  ]
+ },
+ "chronyc": {
+  "n": 4,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "chronyc tracking",
+   "chronyc sources -v"
+  ]
+ },
+ "chronyd": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo chronyd -q"
+  ]
+ },
+ "cloud-init": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo cloud-init query hostname"
+  ]
+ },
+ "column": {
+  "n": 3,
+  "ch": [
+   "ch07"
+  ],
+  "ex": [
+   "ls -l /etc | column -t",
+   "cut -d: -f1,3 /etc/passwd | head -5 | column -t -s:"
+  ]
+ },
+ "cp": {
+  "n": 13,
+  "ch": [
+   "ch02",
+   "ch04",
+   "ch05",
+   "ch06",
+   "ch10"
+  ],
+  "ex": [
+   "sudo cp /etc/apt/sources.list.d/ubuntu.sources{,.bak}",
+   "sudo cp /proc/self/mounts /tmp/mounts.before"
+  ]
+ },
+ "Ctrl+R": {
+  "n": 3,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "Ctrl+R",
+   "Ctrl+R"
+  ]
+ },
+ "curl": {
+  "n": 4,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "curl -fsSL https://example.com/repo/archive-keyring.asc \\",
+   "curl -I http://archive.ubuntu.com/ubuntu/dists/noble/InRelease"
+  ]
+ },
+ "cut": {
+  "n": 12,
+  "ch": [
+   "ch07"
+  ],
+  "ex": [
+   "cut -d: -f1,7 /etc/passwd | head -3",
+   "cut -c1-4 /etc/passwd | head -3     # 每行前 4 个字符"
+  ]
+ },
+ "dash": {
+  "n": 1,
+  "ch": [
+   "ch07"
+  ],
+  "ex": [
+   "dash -c 'echo hi &> /tmp/trap.txt'"
+  ]
+ },
+ "date": {
+  "n": 14,
+  "ch": [
+   "ch02",
+   "ch07",
+   "ch11"
+  ],
+  "ex": [
+   "{ echo \"=== 安装日期 ===\"; date",
+   "date > /tmp/run.log"
+  ]
+ },
+ "dd": {
+  "n": 2,
+  "ch": [
+   "ch04"
+  ],
+  "ex": [
+   "dd if=/dev/zero of=/tmp/testfile bs=1M count=100 status=progress",
+   "dd if=/dev/urandom of=/dev/full bs=1k count=1"
+  ]
+ },
+ "df": {
+  "n": 2,
+  "ch": [
+   "ch02",
+   "ch05"
+  ],
+  "ex": [
+   "df -hT /",
+   "df -h /tmp | tail -1"
+  ]
+ },
+ "diff": {
+  "n": 5,
+  "ch": [
+   "ch04",
+   "ch07",
+   "ch08"
+  ],
+  "ex": [
+   "diff <(sort /tmp/mounts.before) <(sort /proc/self/mounts) && echo \"挂载表已完全还原\"",
+   "diff <(sort a.txt) <(sort b.txt)"
+  ]
+ },
+ "dmesg": {
+  "n": 8,
+  "ch": [
+   "ch07"
+  ],
+  "ex": [
+   "sudo dmesg > /tmp/log.txt | wc -l && echo \"日志采集成功\" >> /tmp/report.txt",
+   "sudo dmesg --level=err | tail -100 || true"
+  ]
+ },
+ "docker": {
+  "n": 4,
+  "ch": [
+   "ch01",
+   "ch11"
+  ],
+  "ex": [
+   "docker run --rm -v /tmp:/tmp alpine /tmp/libc_test",
+   "docker run --rm -v /tmp:/tmp alpine /tmp/libc_test_static"
+  ]
+ },
+ "document.txt": {
+  "n": 1,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "FILE=\"my document.txt\""
+  ]
+ },
+ "dpkg": {
+  "n": 45,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "dpkg -S /usr/sbin/nginx",
+   "dpkg -S /lib/systemd/system/nginx.service"
+  ]
+ },
+ "dpkg-divert": {
+  "n": 6,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "dpkg-divert --list | grep -i xxx",
+   "sudo dpkg-divert --list --package xxx       # 查这个包的所有 diversion"
+  ]
+ },
+ "dpkg-reconfigure": {
+  "n": 1,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "sudo dpkg-reconfigure --priority=low unattended-upgrades"
+  ]
+ },
+ "du": {
+  "n": 3,
+  "ch": [
+   "ch03",
+   "ch11"
+  ],
+  "ex": [
+   "du --max-depth=1 /var       # 长选项带值",
+   "du -sh /home/liu                      # 先看多大"
+  ]
+ },
+ "echo": {
+  "n": 91,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch06",
+   "ch07",
+   "ch08",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "aa-status 2>/dev/null | head -3 || echo \"AppArmor 未启用\"",
+   "{ echo \"=== 安装日期 ===\"; date"
+  ]
+ },
+ "efibootmgr": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "efibootmgr -v"
+  ]
+ },
+ "eval": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "eval \"$(ssh-agent -s)\""
+  ]
+ },
+ "exit": {
+  "n": 3,
+  "ch": [
+   "ch03",
+   "ch11"
+  ],
+  "ex": [
+   "exit",
+   "exit"
+  ]
+ },
+ "export": {
+  "n": 8,
+  "ch": [
+   "ch03",
+   "ch11"
+  ],
+  "ex": [
+   "export PS1='\\[\\e[32m\\]`[exit:$?]`\\w\\[\\e[0m\\]\\$ '",
+   "export MYVAR=\"hello\""
+  ]
+ },
+ "faillock": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "faillock --user liu",
+   "sudo faillock --user liu --reset      # 解锁（把自己锁住时用）"
+  ]
+ },
+ "false": {
+  "n": 10,
+  "ch": [
+   "ch03",
+   "ch07"
+  ],
+  "ex": [
+   "false && echo \"不会执行\"",
+   "false | true"
+  ]
+ },
+ "fdisk": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "sudo fdisk -l /dev/sda"
+  ]
+ },
+ "file": {
+  "n": 7,
+  "ch": [
+   "ch01",
+   "ch04",
+   "ch11"
+  ],
+  "ex": [
+   "file ./myprogram",
+   "file /tmp/libc_test_static"
+  ]
+ },
+ "find": {
+  "n": 49,
+  "ch": [
+   "ch03",
+   "ch05",
+   "ch06",
+   "ch07",
+   "ch08",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "find . -name *.txt        # 错！shell 先展开了 *.txt",
+   "find . -name \"*.txt\"      # 对！find 收到字面的 *.txt"
+  ]
+ },
+ "findmnt": {
+  "n": 9,
+  "ch": [
+   "ch02",
+   "ch04"
+  ],
+  "ex": [
+   "findmnt /",
+   "findmnt /boot"
+  ]
+ },
+ "finger": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "finger ubuntu"
+  ]
+ },
+ "flatpak": {
+  "n": 4,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f",
+   "flatpak remote-ls"
+  ]
+ },
+ "for": {
+  "n": 3,
+  "ch": [
+   "ch05",
+   "ch07"
+  ],
+  "ex": [
+   "for i in $(seq 1 5); do echo \"内容 $i\" > /tmp/src/项目/文档/文件$i.txt; done",
+   "for i in 1 2 3; do echo \"第 $i 个\"; sleep 1; done > /tmp/serial.txt"
+  ]
+ },
+ "free": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "free -h"
+  ]
+ },
+ "fuser": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "fuser -vm /home/liu/          # 迁移前先确认没人用"
+  ]
+ },
+ "gcc": {
+  "n": 2,
+  "ch": [
+   "ch01"
+  ],
+  "ex": [
+   "gcc -o /tmp/libc_test /tmp/libc_test.c",
+   "gcc -static -o /tmp/libc_test_static /tmp/libc_test.c"
+  ]
+ },
+ "getcap": {
+  "n": 1,
+  "ch": [
+   "ch06"
+  ],
+  "ex": [
+   "getcap /usr/bin/ping"
+  ]
+ },
+ "getent": {
+  "n": 16,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "getent passwd ubuntu          # 正确：走完整套 NSS",
+   "getent passwd 1000            # 反查：UID 1000 是谁"
+  ]
+ },
+ "gpasswd": {
+  "n": 3,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo gpasswd -a liu docker               # 加成员",
+   "sudo gpasswd -d liu docker               # 删成员"
+  ]
+ },
+ "gpg": {
+  "n": 3,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "gpg --verify vendor-signature.asc xxx.deb      # 有签名",
+   "gpg --list-keys                     # gpg 自己信任的密钥（用户级）"
+  ]
+ },
+ "grep": {
+  "n": 87,
+  "ch": [
+   "ch02",
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "grep server-amd64.iso SHA256SUMS | sha256sum -c -",
+   "cat /proc/mounts | grep -E '^/(dev|proc|sys)'"
+  ]
+ },
+ "groupadd": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo groupadd docker                     # 建组（下一个空闲 GID）",
+   "sudo groupadd -r chrony                  # 系统组（GID 从 SYS 范围分配）"
+  ]
+ },
+ "groupdel": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo groupdel docker                     # 删组（组里必须没人）"
+  ]
+ },
+ "groupmod": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo groupmod -n liu_new liu       # 2. 改同名组名",
+   "sudo groupmod -n docker_new docker       # 改组名"
+  ]
+ },
+ "gzip": {
+  "n": 5,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "gzip -k 文件           # -k 保留原文件（默认会删掉原文件！）",
+   "gzip -d 文件.gz        # 解压"
+  ]
+ },
+ "hash": {
+  "n": 1,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "hash -r     # 清除命令缓存"
+  ]
+ },
+ "head": {
+  "n": 46,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "head -8 /etc/apt/sources.list.d/ubuntu.sources",
+   "aa-status 2>/dev/null | head -3 || echo \"AppArmor 未启用\""
+  ]
+ },
+ "hostname": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "hostname -f              # 完整 FQDN",
+   "hostname -I              # 所有 IP"
+  ]
+ },
+ "hostnamectl": {
+  "n": 4,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch11"
+  ],
+  "ex": [
+   "hostnamectl",
+   "hostnamectl set-hostname web-01"
+  ]
+ },
+ "hwclock": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo hwclock --systohc        # 把系统时钟写回硬件时钟",
+   "sudo hwclock --hctosys        # 以硬件时钟为准"
+  ]
+ },
+ "iconv": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "iconv -f iso-8859-1 -t utf-8 old.txt > new.txt",
+   "iconv -f gb2312 -t utf-8 old.txt > new.txt"
+  ]
+ },
+ "id": {
+  "n": 12,
+  "ch": [
+   "ch06",
+   "ch11"
+  ],
+  "ex": [
+   "id",
+   "id"
+  ]
+ },
+ "if": {
+  "n": 2,
+  "ch": [
+   "ch03",
+   "ch08"
+  ],
+  "ex": [
+   "if false; then echo x; fi",
+   "if grep -q \"ERROR\" 日志; then"
+  ]
+ },
+ "install": {
+  "n": 3,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo install -d -o myapp -g myapp -m 0750 /var/lib/myapp",
+   "sudo install -m 440 -o root -g root /tmp/50-opsdemo.test /etc/sudoers.d/50-opsde"
+  ]
+ },
+ "journalctl": {
+  "n": 2,
+  "ch": [
+   "ch01",
+   "ch11"
+  ],
+  "ex": [
+   "journalctl -u nginx -f",
+   "sudo journalctl -u chrony --since \"1 hour ago\"     # 6. 服务自己怎么说"
+  ]
+ },
+ "kill": {
+  "n": 2,
+  "ch": [
+   "ch09",
+   "ch11"
+  ],
+  "ex": [
+   "kill -9 <上面那个 PID>",
+   "kill 1892                  # 或 pkill -u liu"
+  ]
+ },
+ "ldd": {
+  "n": 2,
+  "ch": [
+   "ch01"
+  ],
+  "ex": [
+   "ldd ./myprogram",
+   "ldd /tmp/libc_test"
+  ]
+ },
+ "ln": {
+  "n": 3,
+  "ch": [
+   "ch04",
+   "ch05"
+  ],
+  "ex": [
+   "ln orig.txt hard.txt",
+   "ln -s orig.txt soft.txt"
+  ]
+ },
+ "locale": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "locale",
+   "locale -a"
+  ]
+ },
+ "locale-gen": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo locale-gen",
+   "sudo locale-gen zh_CN.UTF-8"
+  ]
+ },
+ "locate": {
+  "n": 3,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "locate sshd_config",
+   "locate -i sshd                   # 忽略大小写"
+  ]
+ },
+ "ls": {
+  "n": 108,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch06",
+   "ch07",
+   "ch09",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "ls /etc/apt/sources.list.d/",
+   "ls -la /etc/*release* /etc/*version* 2>/dev/null"
+  ]
+ },
+ "lsblk": {
+  "n": 3,
+  "ch": [
+   "ch02",
+   "ch04"
+  ],
+  "ex": [
+   "lsblk",
+   "lsblk -f"
+  ]
+ },
+ "lsof": {
+  "n": 1,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "lsof | grep 已删除的文件名"
+  ]
+ },
+ "lvs": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "sudo lvs 2>/dev/null"
+  ]
+ },
+ "man": {
+  "n": 13,
+  "ch": [
+   "ch03",
+   "ch10"
+  ],
+  "ex": [
+   "man ls",
+   "man -k mount      # 等价于 apropos mount"
+  ]
+ },
+ "mkdir": {
+  "n": 25,
+  "ch": [
+   "ch02",
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch06",
+   "ch07",
+   "ch09",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "mkdir -p ~/docs",
+   "mkdir -p ~/.local/bin"
+  ]
+ },
+ "mount": {
+  "n": 2,
+  "ch": [
+   "ch02",
+   "ch04"
+  ],
+  "ex": [
+   "sudo mount -o umask=000 /sys/firmware/efi/efivars",
+   "sudo mount --bind /tmp/source /tmp/bindpoint"
+  ]
+ },
+ "mv": {
+  "n": 4,
+  "ch": [
+   "ch03",
+   "ch05",
+   "ch09",
+   "ch10"
+  ],
+  "ex": [
+   "mv myscript ~/.local/bin/",
+   "mv /home/user/大文件.log /mnt/usb/"
+  ]
+ },
+ "nano": {
+  "n": 7,
+  "ch": [
+   "ch09",
+   "ch11"
+  ],
+  "ex": [
+   "nano notes.txt",
+   "nano +42 notes.txt    # 打开并跳到第 42 行"
+  ]
+ },
+ "newgrp": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "newgrp docker"
+  ]
+ },
+ "nft": {
+  "n": 2,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "sudo nft list ruleset",
+   "sudo nft list ruleset"
+  ]
+ },
+ "nginx": {
+  "n": 2,
+  "ch": [
+   "ch08",
+   "ch10"
+  ],
+  "ex": [
+   "sudo nginx -t && echo \"语法 OK\" || echo \"有问题，检查 *.bak\"",
+   "sudo nginx -t && sudo systemctl reload nginx"
+  ]
+ },
+ "nl": {
+  "n": 3,
+  "ch": [
+   "ch07"
+  ],
+  "ex": [
+   "nl /tmp/names.txt",
+   "nl -ba -w3 -s': ' /tmp/names.txt"
+  ]
+ },
+ "od": {
+  "n": 2,
+  "ch": [
+   "ch04"
+  ],
+  "ex": [
+   "sudo head -c 32 /dev/sda1 | od -A x -t x1z",
+   "head -c 16 /dev/urandom | od -A n -t x1"
+  ]
+ },
+ "openssl": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "openssl rand -base64 12"
+  ]
+ },
+ "passwd": {
+  "n": 5,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo passwd -l myapp",
+   "passwd"
+  ]
+ },
+ "paste": {
+  "n": 3,
+  "ch": [
+   "ch07"
+  ],
+  "ex": [
+   "paste /tmp/names.txt /tmp/roles.txt",
+   "paste -sd, /tmp/names.txt"
+  ]
+ },
+ "pgrep": {
+  "n": 1,
+  "ch": [
+   "ch09"
+  ],
+  "ex": [
+   "pgrep -af 'vim .*tasks.txt'"
+  ]
+ },
+ "ping": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "ping -c3 ntp.ubuntu.com                            # 3. DNS 和网络通不通"
+  ]
+ },
+ "pkill": {
+  "n": 2,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo pkill -u liu          # 杀该用户所有进程（会杀他的 tmux 会话！）",
+   "sudo pkill -9 -u liu       # 顽固的"
+  ]
+ },
+ "printenv": {
+  "n": 1,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "printenv HOME USER SHELL"
+  ]
+ },
+ "printf": {
+  "n": 13,
+  "ch": [
+   "ch07",
+   "ch08",
+   "ch11"
+  ],
+  "ex": [
+   "printf 'apple\\nbanana\\napple\\n' > /tmp/fruits.txt",
+   "printf '' | xargs echo \"我在空输入下也被执行了\""
+  ]
+ },
+ "ps": {
+  "n": 3,
+  "ch": [
+   "ch03",
+   "ch11"
+  ],
+  "ex": [
+   "ps -ef --forest | head -20",
+   "ps -u liu"
+  ]
+ },
+ "pvs": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "sudo pvs 2>/dev/null"
+  ]
+ },
+ "pwconv": {
+  "n": 3,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo pwconv",
+   "sudo pwconv -r          # 只报告，不修改"
+  ]
+ },
+ "pwd": {
+  "n": 2,
+  "ch": [
+   "ch07",
+   "ch10"
+  ],
+  "ex": [
+   "pwd",
+   "pwd"
+  ]
+ },
+ "readlink": {
+  "n": 4,
+  "ch": [
+   "ch02",
+   "ch04",
+   "ch09"
+  ],
+  "ex": [
+   "readlink -f $(which vi)",
+   "readlink /lib"
+  ]
+ },
+ "realpath": {
+  "n": 1,
+  "ch": [
+   "ch04"
+  ],
+  "ex": [
+   "realpath /etc/../etc/apt/./sources.list.d/.."
+  ]
+ },
+ "reboot": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "sudo reboot"
+  ]
+ },
+ "report.txt": {
+  "n": 1,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "FILE=\"my report.txt\""
+  ]
+ },
+ "rg": {
+  "n": 6,
+  "ch": [
+   "ch08"
+  ],
+  "ex": [
+   "rg \"TIMEOUT\" /etc/          # 默认就是递归，不用 -r",
+   "rg -i \"timeout\"             # 默认遵守 .gitignore"
+  ]
+ },
+ "rm": {
+  "n": 41,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch06",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "rm -f /tmp/libc_test /tmp/libc_test_static /tmp/libc_test.c",
+   "rm -f ~/docs/baseline.txt"
+  ]
+ },
+ "rmdir": {
+  "n": 5,
+  "ch": [
+   "ch05",
+   "ch06"
+  ],
+  "ex": [
+   "rmdir 空目录        # 只删空目录",
+   "rmdir 有文件的目录"
+  ]
+ },
+ "rsync": {
+  "n": 19,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "rsync -avz --delete 源/ 目标/",
+   "rsync -avz --delete /data/ 目标/     # 正确"
+  ]
+ },
+ "sed": {
+  "n": 38,
+  "ch": [
+   "ch03",
+   "ch08",
+   "ch10"
+  ],
+  "ex": [
+   "sed 's/a/b/g'          # 单引号：$ 可能会出现",
+   "sed 's/旧/新/'       文件"
+  ]
+ },
+ "seq": {
+  "n": 1,
+  "ch": [
+   "ch09"
+  ],
+  "ex": [
+   "seq -f 'task%03g' 1 100 > tasks.txt"
+  ]
+ },
+ "service": {
+  "n": 1,
+  "ch": [
+   "ch01"
+  ],
+  "ex": [
+   "sudo service nginx start"
+  ]
+ },
+ "set": {
+  "n": 12,
+  "ch": [
+   "ch03",
+   "ch07"
+  ],
+  "ex": [
+   "set -o pipefail",
+   "set -e"
+  ]
+ },
+ "sha256sum": {
+  "n": 3,
+  "ch": [
+   "ch02",
+   "ch10"
+  ],
+  "ex": [
+   "sha256sum ubuntu-24.04.1-live-server-amd64.iso",
+   "grep server-amd64.iso SHA256SUMS | sha256sum -c -"
+  ]
+ },
+ "shellcheck": {
+  "n": 1,
+  "ch": [
+   "ch08"
+  ],
+  "ex": [
+   "shellcheck ~/bin/sudo-audit"
+  ]
+ },
+ "sleep": {
+  "n": 5,
+  "ch": [
+   "ch04",
+   "ch07"
+  ],
+  "ex": [
+   "sleep 60 &",
+   "for i in 1 2 3; do echo \"第 $i 个\"; sleep 1; done > /tmp/serial.txt"
+  ]
+ },
+ "snap": {
+  "n": 5,
+  "ch": [
+   "ch10"
+  ],
+  "ex": [
+   "snap list",
+   "snap info htop"
+  ]
+ },
+ "sort": {
+  "n": 27,
+  "ch": [
+   "ch05",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch11"
+  ],
+  "ex": [
+   "find /tmp/src -type f | sort",
+   "find /tmp/dst | sort"
+  ]
+ },
+ "ss": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "ss -tlnp | grep :22"
+  ]
+ },
+ "ssh": {
+  "n": 5,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch07",
+   "ch11"
+  ],
+  "ex": [
+   "ssh -X user@server 'firefox'",
+   "ssh user@server"
+  ]
+ },
+ "ssh-add": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "ssh-add ~/.ssh/id_ed25519"
+  ]
+ },
+ "ssh-copy-id": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "ssh-copy-id -i ~/.ssh/id_ed25519.pub liu@server"
+  ]
+ },
+ "ssh-keygen": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "ssh-keygen -t ed25519 -C \"liu@laptop\""
+  ]
+ },
+ "sshd": {
+  "n": 1,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo sshd -t                 # 语法检查，没有输出就是通过"
+  ]
+ },
+ "stat": {
+  "n": 4,
+  "ch": [
+   "ch04"
+  ],
+  "ex": [
+   "stat /usr/bin/bash",
+   "stat -c '%n inode=%i links=%h size=%s mode=%a owner=%U:%G' /usr/bin/bash"
+  ]
+ },
+ "stty": {
+  "n": 2,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "stty -a",
+   "stty -a | tr ';' '\\n' | grep -E 'intr|susp|erase|kill|eof'"
+  ]
+ },
+ "su": {
+  "n": 7,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "su - broken",
+   "su - opsdemo"
+  ]
+ },
+ "sudoedit": {
+  "n": 3,
+  "ch": [
+   "ch06",
+   "ch09"
+  ],
+  "ex": [
+   "sudoedit 文件              # 以 root 权限编辑文件，但不给你 root shell",
+   "sudoedit /etc/hosts           # 用普通用户编辑，保存时才提权"
+  ]
+ },
+ "swapon": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "swapon --show"
+  ]
+ },
+ "sysctl": {
+  "n": 2,
+  "ch": [
+   "ch04"
+  ],
+  "ex": [
+   "sudo sysctl -w kernel.hostname=my-box",
+   "sudo sysctl --system"
+  ]
+ },
+ "systemctl": {
+  "n": 27,
+  "ch": [
+   "ch01",
+   "ch02",
+   "ch03",
+   "ch10",
+   "ch11"
+  ],
+  "ex": [
+   "sudo systemctl start nginx",
+   "sudo systemctl status nginx"
+  ]
+ },
+ "systemd-detect-virt": {
+  "n": 2,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "systemd-detect-virt        # 虚拟机会输出 vmware / kvm / oracle 等",
+   "systemd-detect-virt -c qemu  # 容器里为 1"
+  ]
+ },
+ "tail": {
+  "n": 9,
+  "ch": [
+   "ch01",
+   "ch05",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch10"
+  ],
+  "ex": [
+   "tail -f /var/log/nginx/error.log",
+   "sudo tail -f /proc/1234/fd/3        # 还能持续抓后续内容，直到进程退出"
+  ]
+ },
+ "tar": {
+  "n": 11,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "tar -cvf 项目.tar 项目目录/",
+   "tar -tvf 项目.tar"
+  ]
+ },
+ "tee": {
+  "n": 9,
+  "ch": [
+   "ch07",
+   "ch11"
+  ],
+  "ex": [
+   "ls /nonexistent | tee /tmp/log.txt > /dev/null",
+   "sudo dmesg --level=err | tee /tmp/kernel-err.log | head -10"
+  ]
+ },
+ "timedatectl": {
+  "n": 8,
+  "ch": [
+   "ch02",
+   "ch11"
+  ],
+  "ex": [
+   "timedatectl",
+   "sudo timedatectl set-timezone Asia/Shanghai"
+  ]
+ },
+ "touch": {
+  "n": 18,
+  "ch": [
+   "ch03",
+   "ch06",
+   "ch07"
+  ],
+  "ex": [
+   "touch -- -weird-file-name",
+   "touch a $EMPTY b        # shell 分词后 → 两个参数"
+  ]
+ },
+ "tr": {
+  "n": 7,
+  "ch": [
+   "ch03",
+   "ch07"
+  ],
+  "ex": [
+   "echo $PATH | tr ':' '\\n' | while read d; do",
+   "cat /etc/hostname | tr a-z A-Z"
+  ]
+ },
+ "trash-put": {
+  "n": 1,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "trash-put ~/那个文件"
+  ]
+ },
+ "true": {
+  "n": 10,
+  "ch": [
+   "ch03",
+   "ch07",
+   "ch08"
+  ],
+  "ex": [
+   "true || echo \"不会执行\"",
+   "false | true"
+  ]
+ },
+ "tty": {
+  "n": 2,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "tty",
+   "tty"
+  ]
+ },
+ "type": {
+  "n": 2,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "type -a ls",
+   "type ls"
+  ]
+ },
+ "umask": {
+  "n": 2,
+  "ch": [
+   "ch06"
+  ],
+  "ex": [
+   "umask",
+   "umask"
+  ]
+ },
+ "umount": {
+  "n": 4,
+  "ch": [
+   "ch02",
+   "ch04",
+   "ch05"
+  ],
+  "ex": [
+   "sudo umount /sys/firmware/efi/efivars",
+   "sudo umount /tmp/bindpoint"
+  ]
+ },
+ "uname": {
+  "n": 5,
+  "ch": [
+   "ch01",
+   "ch02"
+  ],
+  "ex": [
+   "uname -r",
+   "uname -r"
+  ]
+ },
+ "uniq": {
+  "n": 9,
+  "ch": [
+   "ch07",
+   "ch11"
+  ],
+  "ex": [
+   "uniq /tmp/fruits.txt",
+   "sort /tmp/fruits.txt | uniq"
+  ]
+ },
+ "unset": {
+  "n": 1,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "unset set   # 关掉 pipefail 恢复默认（或直接开新终端）"
+  ]
+ },
+ "unzip": {
+  "n": 2,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "unzip -l 项目.zip             # 只列出不解压",
+   "unzip -t 项目.zip             # 测试完整性（-t = test）"
+  ]
+ },
+ "update-alternatives": {
+  "n": 3,
+  "ch": [
+   "ch01",
+   "ch02"
+  ],
+  "ex": [
+   "sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 100",
+   "sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 100"
+  ]
+ },
+ "updatedb": {
+  "n": 1,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "sudo updatedb                     # 手动刷新索引"
+  ]
+ },
+ "useradd": {
+  "n": 8,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo useradd -m liu",
+   "sudo useradd broken"
+  ]
+ },
+ "userdel": {
+  "n": 8,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo userdel liu",
+   "sudo userdel -r liu"
+  ]
+ },
+ "usermod": {
+  "n": 17,
+  "ch": [
+   "ch11"
+  ],
+  "ex": [
+   "sudo usermod -u 2001 liu",
+   "sudo usermod -l liu_old liu     # 改名占位，UID 不变"
+  ]
+ },
+ "vgs": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "sudo vgs 2>/dev/null"
+  ]
+ },
+ "vi": {
+  "n": 2,
+  "ch": [
+   "ch02",
+   "ch09"
+  ],
+  "ex": [
+   "vi --version | head -1",
+   "vi --version | head -3"
+  ]
+ },
+ "vim": {
+  "n": 28,
+  "ch": [
+   "ch02",
+   "ch09"
+  ],
+  "ex": [
+   "sudo vim /etc/hostname",
+   "sudo vim /etc/hosts"
+  ]
+ },
+ "vimtutor": {
+  "n": 1,
+  "ch": [
+   "ch09"
+  ],
+  "ex": [
+   "vimtutor"
+  ]
+ },
+ "visudo": {
+  "n": 18,
+  "ch": [
+   "ch06",
+   "ch11"
+  ],
+  "ex": [
+   "sudo visudo                    # 编辑 /etc/sudoers",
+   "sudo visudo -f /etc/sudoers.d/99-lab    # 编辑 drop-in 文件（推荐）"
+  ]
+ },
+ "wc": {
+  "n": 24,
+  "ch": [
+   "ch03",
+   "ch04",
+   "ch05",
+   "ch07",
+   "ch08",
+   "ch09",
+   "ch11"
+  ],
+  "ex": [
+   "wc -l $FILE          # 错！wc 收到两个参数",
+   "wc -l \"$FILE\"        # 对"
+  ]
+ },
+ "wget": {
+  "n": 1,
+  "ch": [
+   "ch02"
+  ],
+  "ex": [
+   "wget https://releases.ubuntu.com/24.04/ubuntu-24.04.1-live-server-amd64.iso"
+  ]
+ },
+ "whatis": {
+  "n": 1,
+  "ch": [
+   "ch03"
+  ],
+  "ex": [
+   "whatis ls"
+  ]
+ },
+ "which": {
+  "n": 5,
+  "ch": [
+   "ch03",
+   "ch04",
+   "ch06",
+   "ch10"
+  ],
+  "ex": [
+   "which -a ls",
+   "which nosuchcommand && sudo apt install nosuchcommand"
+  ]
+ },
+ "while": {
+  "n": 4,
+  "ch": [
+   "ch03",
+   "ch07",
+   "ch11"
+  ],
+  "ex": [
+   "echo $PATH | tr ':' '\\n' | while read d; do",
+   "while read -r line; do"
+  ]
+ },
+ "xargs": {
+  "n": 23,
+  "ch": [
+   "ch05",
+   "ch07"
+  ],
+  "ex": [
+   "find . -name '*.txt' -print0 | xargs -0 rm",
+   "find . -type f -name '*.log' -print0 | xargs -0 grep -l 'ERROR'"
+  ]
+ },
+ "xclip": {
+  "n": 1,
+  "ch": [
+   "ch09"
+  ],
+  "ex": [
+   "xclip -selection clipboard < ~/.clip    # 有图形环境时"
+  ]
+ },
+ "zip": {
+  "n": 1,
+  "ch": [
+   "ch05"
+  ],
+  "ex": [
+   "zip -r 项目.zip 项目目录/     # -r 递归"
+  ]
+ }
+}
