@@ -1,0 +1,10 @@
+{
+  "id": "deepseek-tui",
+  "name": "DeepSeek TUI",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Embed DeepSeek-TUI in Obsidian sidebar",
+  "author": "sunnybluesea",
+  "authorUrl": "",
+  "isDesktopOnly": true
+}

@@ -1,0 +1,9 @@
+{
+  "deepseekPath": "F:\\CodeWhale\\bin\\codewhale.exe",
+  "apiPort": 7878,
+  "apiHost": "127.0.0.1",
+  "defaultModel": "deepseek-chat",
+  "autoStartServer": true,
+  "reasoningEffort": "high",
+  "environmentVariables": "DEEPSEEK_API_KEY=sk-410cab7f81e24434b4728a3367cc2ae5\nDEEPSEEK_BASE_URL=https://api.deepseek.com\n"
+}

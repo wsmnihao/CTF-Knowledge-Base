@@ -31,16 +31,16 @@ gobuster --help
 | tftp  | tftp               |
 #### 常用全局参数
 
-| 短参数 | 长参数           | 说明      | 默认值     |
-| --- | ------------- | ------- | ------- |
-| -t  | --threads     | 线程数     | 10      |
-| -w  | --wordlist    | 字典路径    | 无（必须指定） |
-| -o  | --output      | 保存结果到文件 | 标准输出    |
-| -v  | --verbose     | 显示详细信息  | 关闭      |
-| -q  | --quiet       | 不显示横幅   | 关闭      |
-| -z  | --no-progress | 不显示进度   | 关闭      |
-| 无   | --delay       | 请求间隔时间  | 0       |
-| 无   | --debug       | 调试模式    | 关闭      |
+| 短参数 | 长参数           | 说明      | 默认值         |
+| --- | ------------- | ------- | ----------- |
+| -t  | --threads     | 线程数     | 10          |
+| -w  | --wordlist    | 字典路径    | 无（**必须指定**） |
+| -o  | --output      | 保存结果到文件 | 标准输出        |
+| -v  | --verbose     | 显示详细信息  | 关闭          |
+| -q  | --quiet       | 不显示横幅   | 关闭          |
+| -z  | --no-progress | 不显示进度   | 关闭          |
+| 无   | --delay       | 请求间隔时间  | 0           |
+| 无   | --debug       | 调试模式    | 关闭          |
 #### 示例命令
 ```bash
 gobuster dir -u "http://example.thm/" -w /usr/share/wordlists/dirb/small.txt -t 64
