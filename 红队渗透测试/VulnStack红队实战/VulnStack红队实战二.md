@@ -73,21 +73,21 @@ PORT     STATE    SERVICE
 443/tcp  filtered https                   # 443过滤了
 445/tcp  open     microsoft-ds            # 445开着！！！重大发现
 1433/tcp open     ms-sql-s                # 1433开着
-3306/tcp filtered mysql                   # 3306也开着！！！重大发现
+3306/tcp filtered mysql                   # 3306 被防火墙过滤
 3389/tcp open     ms-wbt-server           # 3389开着！！！可以试试 
 7001/tcp open     afs3-callback           # 7001开着！！重大发现，可以试试，首要目标
-8080/tcp filtered http-proxy              # 8080也开着
+8080/tcp filtered http-proxy              # 8080 被防火墙过滤
 MAC Address: 00:0C:29:AE:0B:12 (VMware)
 
 Nmap scan report for 192.168.111.201
 Host is up (0.00021s latency).
 
 PORT     STATE    SERVICE                # 域内主机，不是首要目标
-80/tcp   filtered http                   # 开放80！！！
+80/tcp   filtered http                   # 80 被防火墙过滤
 135/tcp  open     msrpc                  # 开放135 ！！
 139/tcp  open     netbios-ssn            # 开放139！！
 443/tcp  filtered https                  # 443防火墙过滤掉了
-445/tcp  open     microsoft-ds           # 443开着！！
+445/tcp  open     microsoft-ds           # 445开着！！
 1433/tcp filtered ms-sql-s               # 过滤了
 3306/tcp filtered mysql                  # 过滤了
 3389/tcp open     ms-wbt-server          # 3389开着！！！

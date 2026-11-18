@@ -14,6 +14,6 @@ source jupyter_env/bin/activate
 # 现在安装 Jupyter
 pip install jupyter pandas matplotlib
 
-# 启动juputer
+# 启动 Jupyter
 jupyter-notebook --ip=0.0.0.0 --port=8888 --no-browser
 ```

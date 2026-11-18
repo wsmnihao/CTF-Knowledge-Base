@@ -33,9 +33,10 @@ Socket负责进程之间的网络数据传输，好比数据的**搬运工**。
 import socket
 socket_server = socket.socket()
 ```
-**2. 绑定socket_server到指定IP和地址**
+**2. 绑定 socket_server 到指定 IP 和端口**
 ```Python
-socket_server.bind(host, port)
+socket_server.bind(("host", port))
+# bind 方法接收一个二元元组参数，第 1 个元素是 IP，第 2 个是端口
 ```
 **3. 服务端开始监听端口**
 ```Python

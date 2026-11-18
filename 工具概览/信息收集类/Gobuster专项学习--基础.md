@@ -28,7 +28,7 @@ gobuster --help
 | s3    | AWS S3 存储桶枚举       |
 | gcs   | Google Cloud 存储桶枚举 |
 | fuzz  | 模糊测试模式             |
-| tftp  | tftp               |
+| tftp  | TFTP 服务枚举         |
 #### 常用全局参数
 
 | 短参数 | 长参数           | 说明      | 默认值         |
@@ -131,7 +131,7 @@ gobuster dns -d example.thm -w /usr/share/wordlists/SecLists/Discovery/DNS/subdo
 |**字典选择**|`SecLists/Discovery/DNS/` 目录下有专门的 DNS 字典|
 |**与 dir 模式的区别**|`dir` 扫目录/文件，`dns` 扫子域名|
 |**递归枚举**|Gobuster 不递归，发现子域名后需要单独枚举该子域名|
-### Vhost枚举：虚拟机枚举
+### Vhost 枚举：虚拟主机枚举
 
 #### 什么是 vhost 模式？
 

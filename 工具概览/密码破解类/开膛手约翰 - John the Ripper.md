@@ -72,7 +72,7 @@ Linux
 	有些Linux系统上是没有的，可以用以下这两种任意一个进行下载安装
 ```bash
 sudo dnf install john 
-sduo apt install john
+sudo apt install john
 ```
 
 **Windows
@@ -163,12 +163,12 @@ john [options] [file path]
 **使用语法
 ```bash
 john --wordlist=[path to wordlist] [path to file]
-	--wordlis=     # 指定使用单词列表模式，读取你在路径中提供的文件
+	--wordlist=     # 指定使用单词列表模式，读取你在路径中提供的文件
 	[path to file] # 单词列表名称 
 ```
 用例
 ```bash
-john --wordlist=/usr/share/wordlists/rockyou.txt hash_to_creak.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt hash_to_crack.txt
 ```
 
 #### 识别哈希类型
@@ -201,8 +201,8 @@ john --format=[format] --wordlist=[path to file]
 john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash_to_crack.txt
 ```
 
-### 破解Windows认证哈希（NTML哈希）
-#### 什么是NTML哈希
+### 破解 Windows 认证哈希（NTLM 哈希）
+#### 什么是 NTLM 哈希
 **NTLM**（NT LAN Manager）是现代 Windows 操作系统用于存储用户和服务密码的哈希格式。它也被称为 **NTHash**。
 
 **历史背景**：

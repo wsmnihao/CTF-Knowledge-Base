@@ -92,7 +92,7 @@ Metasploit 是当前业界使用最广泛的漏洞利用/渗透测试框架，�
 | 参数名     | 全称          | 作用                                                            |
 | ------- | ----------- | ------------------------------------------------------------- |
 | RHOST   | Remote Host | **目标靶机 IP**（支持单 IP、CIDR段 `10.10.10.0/24`、或者 `file:/path.txt`） |
-| RPOST   | Remote Port | 目标靶机上漏洞服务运行的**端口**（如 80, 445, 8080）                           |
+| RPORT   | Remote Port | 目标靶机上漏洞服务运行的**端口**（如 80, 445, 8080）                           |
 | LHOST   | Local Host  | **攻击机（你当前的 Kali）的 IP**                                        |
 | PAYLOAD | Payload     | 指定的攻击载荷                                                       |
 | SESSION | Session     | 已建立的会话 ID，常用于后渗透模块（如 `set SESSION 1`）                         |

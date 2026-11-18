@@ -19,7 +19,7 @@ DVWA靶场地址
 等下载完成之后解压。
 
 * * *
-PHPstuday程序下载
+PHPStudy 程序下载
 
 [https://www.xp.cn/phpstudy#phpstudy](https://www.xp.cn/phpstudy#phpstudy)
 
@@ -45,8 +45,8 @@ PHPstuday程序下载
     
     
 	有些同学电脑上没有安装MySQL或者SQLservers的软件服务，就不需要做下面的。
-    net stop myslq80   #有的同学数据库安装的是8.1版本的，就用这个
-    net stop myslq57   #有的同学数据库安装的是5.7版本的，就用这个
+    net stop mysql80   #有的同学数据库安装的是8.1版本的，就用这个
+    net stop mysql57   #有的同学数据库安装的是5.7版本的，就用这个
     #注：有些时候二次或多次安装，未卸载干净，服务名称会不一样，win+s搜素服务，找到mysql开头的名称就是要找的东西
     如果上述两条命令不对或者执行不成功，就检查一下服务的名称是否正确，参照#注
 
